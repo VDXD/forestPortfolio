@@ -35,18 +35,16 @@ import React, { useMemo } from "react";
 import GrassBlock from "./Grass";
 
 const GrassField = () => {
-  const numberOfGrassBlocks = 400; // Total number of grass blocks
-  const radiusToAvoid = 1; // Radius around the computer model to avoid
-  const areaSize = 30; // Total area size (defines boundary for grass placement)
+  const numberOfGrassBlocks = 400; 
+  const radiusToAvoid = 1;
+  const areaSize = 30; 
 
-  // Generate random positions dynamically and memoize them
   const grassPositions = useMemo(() => {
     const positions = [];
     while (positions.length < numberOfGrassBlocks) {
       const x = Math.random() * areaSize - areaSize / 2; // Random x within the area
       const z = Math.random() * areaSize - areaSize / 2; // Random z within the area
 
-      // Avoid the central area around the computer model
       if (Math.sqrt(x * x + z * z) > radiusToAvoid) {
         const position = [x, 0, z];
         const rotation = [0, Math.random() * Math.PI * 2, 0]; // Random rotation
@@ -55,7 +53,7 @@ const GrassField = () => {
       }
     }
     return positions;
-  }, [numberOfGrassBlocks, radiusToAvoid, areaSize]); // Only recompute if inputs change
+  }, [numberOfGrassBlocks, radiusToAvoid, areaSize]); 
 
   return (
     <>

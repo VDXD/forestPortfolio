@@ -110,6 +110,7 @@ import PlayerInteraction from "./PlayerInteraction";
 import Ground from "./Ground";
 import GrassField from "./GrassFeild";
 import RiddleModal from "./Riddle";
+import BackgroundSound from "./BackgroundMusic";
 
 function Experience() {
   const [showTerminal, setShowTerminal] = useState(false);
@@ -119,25 +120,10 @@ function Experience() {
   const [lives, setLives] = useState(3);
   const [answeredCorrectly, setAnsweredCorrectly] = useState(false);
   const [showInstruction, setShowInstruction] = useState(true);
-  const [isMoving, setIsMoving] = useState(false); // Track player's movement
+  const [isMoving, setIsMoving] = useState(false); 
 
   const modelPosition = [0, 0.32, 0];
 
-  // Audio object for the background night sound
-  const backgroundSoundRef = useRef(null);
-
-  // Load and play the background sound
-  useEffect(() => {
-    backgroundSoundRef.current = new Audio("/sounds/Backgound.mp3"); // Path to your night forest sound file
-    backgroundSoundRef.current.loop = true;
-    backgroundSoundRef.current.volume = 0.3; // Adjust volume if needed
-    backgroundSoundRef.current.play();
-
-    return () => {
-      backgroundSoundRef.current.pause(); // Pause the sound on cleanup
-      backgroundSoundRef.current = null;
-    };
-  }, []);
 
   const riddles = [
     {
@@ -145,11 +131,13 @@ function Experience() {
       answer: "piano",
     },
     {
-      question: "What comes once in a minute, twice in a moment, but never in a thousand years?",
+      question:
+        "What comes once in a minute, twice in a moment, but never in a thousand years?",
       answer: "the letter m",
     },
     {
-      question: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
+      question:
+        "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
       answer: "echo",
     },
   ];
@@ -165,7 +153,7 @@ function Experience() {
   const handleOpenRiddle = () => {
     const randomRiddle = riddles[Math.floor(Math.random() * riddles.length)];
     setRiddle(randomRiddle);
-    setLives(3); // Reset lives
+    setLives(3); 
     setAnsweredCorrectly(false);
     pointerLockRef.current.unlock();
   };
@@ -179,11 +167,11 @@ function Experience() {
     if (!riddle) return;
     if (input.toLowerCase() === riddle.answer.toLowerCase()) {
       setAnsweredCorrectly(true);
-      setRiddle(null); // Close riddle on correct answer
+      setRiddle(null); 
     } else {
       setLives((prevLives) => {
         if (prevLives === 1) {
-          setRiddle(null); // Close riddle on game over
+          setRiddle(null); 
         }
         return prevLives - 1;
       });
@@ -192,11 +180,12 @@ function Experience() {
 
   return (
     <>
+      <BackgroundSound />
+
       <Suspense fallback={null}>
         <Canvas shadows camera={{ position: [0, 0, 0], fov: 30 }}>
           <color attach="background" args={["#0a0a0a"]} />
 
-          {/* Lights */}
           <spotLight
             color={[0.5, 0, 0.2]}
             intensity={25}
@@ -249,7 +238,7 @@ function Experience() {
           <Player
             controlsEnabled={!showTerminal && !riddle}
             onPositionUpdate={(pos) => setPlayerPosition(pos)}
-            onMovementChange={setIsMoving} // Pass movement state to parent
+            onMovementChange={setIsMoving} 
           />
 
           <PlayerInteraction setShowTerminal={showTerminal} />
@@ -283,4 +272,3 @@ function Experience() {
 }
 
 export default Experience;
-

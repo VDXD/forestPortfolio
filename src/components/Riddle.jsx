@@ -53,7 +53,7 @@ const RiddleModal = ({ riddle, onAnswer, lives, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onAnswer(answer);
-    setAnswer(""); // Clear input after submission
+    setAnswer(""); 
   };
 
 const heartIcon = (
@@ -114,7 +114,7 @@ const heartIcon = (
           </button>
         </form>
 
-        {/* Message if lives are over */}
+       
         {lives <= 0 && (
           <p className="text-red-500 font-creepster">You have no lives left! The riddle is over.</p>
         )}
