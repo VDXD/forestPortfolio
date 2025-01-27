@@ -1,3 +1,3 @@
-# Riddle_Three
+# Second_Three
 
 This is my second three js project
