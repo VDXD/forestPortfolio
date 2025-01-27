@@ -33,9 +33,8 @@ Type 'help' to see available commands.`,
       "- clear      → Clear the terminal",
       "- exit       → Close the terminal",
     ],
-    about: [
-      "👋 Hi, I'm Vedant! I'm a frontend designer who loves working with 3D and graphics.",
-      "Tech Stack: JavaScript, TypeScript, Java, Unity, Blender, Three.js",
+    whois: [
+      "No",
     ],
     projects: [
       "📌 Flow - A video conferencing platform with Next.js & Spring Boot.",
@@ -45,9 +44,8 @@ Type 'help' to see available commands.`,
     ],
     contact: [
       "📬 You can reach me at:",
-      "- Email: vedant@example.com",
-      "- GitHub: github.com/kitsune",
-      "- LinkedIn: linkedin.com/in/vedant",
+      "- Email: rajputvedant213@gmail.com",
+      "- GitHub: github.com/VDXD",
     ],
     banner: [
       `Kitsune Is Not A Corporation. All.... Is IDK!?
