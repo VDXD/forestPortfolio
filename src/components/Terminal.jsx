@@ -3,19 +3,35 @@ import React, { useState, useRef, useEffect } from "react";
 export default function Terminal({ onClose }) {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState([
-    "Welcome to the Portfolio Terminal! 🚀",
-    "Type 'help' to see available commands.",
+    `Kitsune Is Not A Corporation. All.... Is IDK!?
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠙⠻⢶⣄⡀⠀⠀⠀⢀⣤⠶⠛⠛⡇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣇⠀⠀⣙⣿⣦⣤⣴⣿⣁⠀⠀⣸⠇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣡⣾⣿⣿⣿⣿⣿⣿⣿⣷⣌⠋⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣷⣄⡈⢻⣿⡟⢁⣠⣾⣿⣦⠀⠀⠀⠀ ██   ██ ██ ████████ ███████ ██    ██ ███    ██ ███████ ███████ ███████ 
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⠘⣿⠃⣿⣿⣿⣿⡏⠀⠀⠀⠀ ██  ██  ██    ██    ██      ██    ██ ████   ██ ██      ██      ██   
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠈⠛⣰⠿⣆⠛⠁⠀⡀⠀⠀⠀⠀⠀ █████   ██    ██    ███████ ██    ██ ██ ██  ██ █████   █████   █████   
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣦⠀⠘⠛⠋⠀⣴⣿⠁⠀⠀⠀⠀⠀ ██  ██  ██    ██         ██ ██    ██ ██  ██ ██ ██      ██      ██ 
+⠀⠀⠀⠀⠀⠀⣀⣤⣶⣾⣿⣿⣿⣿⡇⠀⠀⠀⢸⣿⣏⠀⠀⠀⠀⠀⠀ ██   ██ ██    ██    ███████  ██████  ██   ████ ███████ ███████ ███████ 
+⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠀⠀⠀⠾⢿⣿⠀⠀⠀⠀⠀⠀
+⠀⣠⣿⣿⣿⣿⣿⣿⡿⠟⠋⣁⣠⣤⣤⡶⠶⠶⣤⣄⠈⠀⠀⠀⠀⠀⠀
+⢰⣿⣿⣮⣉⣉⣉⣤⣴⣶⣿⣿⣋⡥⠄⠀⠀⠀⠀⠉⢻⣄⠀⠀⠀⠀⠀
+⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣋⣁⣤⣀⣀⣤⣤⣤⣤⣄⣿⡄⠀⠀⠀⠀
+⠀⠙⠿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠋⠉⠁⠀⠀⠀⠀⠈⠛⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+Type 'help' to see available commands.`,
   ]);
+
   const terminalRef = useRef(null);
 
   const commands = {
     help: [
       "Available commands:",
-      "- cd about      → Learn about me",
-      "- cd projects   → See my projects",
-      "- cd contact    → Get in touch",
-      "- clear         → Clear the terminal",
-      "- exit          → Close the terminal",
+      "- whois      → Who is Kitsune",
+      "- projects   → View Kitsune Projects",
+      "- contact    → Let's talk",
+      "- clear      → Clear the terminal",
+      "- exit       → Close the terminal",
     ],
     about: [
       "👋 Hi, I'm Vedant! I'm a frontend designer who loves working with 3D and graphics.",
@@ -33,6 +49,25 @@ export default function Terminal({ onClose }) {
       "- GitHub: github.com/kitsune",
       "- LinkedIn: linkedin.com/in/vedant",
     ],
+    banner: [
+      `Kitsune Is Not A Corporation. All.... Is IDK!?
+     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀
+     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠙⠻⢶⣄⡀⠀⠀⠀⢀⣤⠶⠛⠛⡇⠀⠀⠀
+     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣇⠀⠀⣙⣿⣦⣤⣴⣿⣁⠀⠀⣸⠇⠀⠀⠀
+     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣡⣾⣿⣿⣿⣿⣿⣿⣿⣷⣌⠋⠀⠀⠀⠀
+     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣷⣄⡈⢻⣿⡟⢁⣠⣾⣿⣦⠀⠀⠀⠀ ██   ██ ██ ████████ ███████ ██    ██ ███    ██ ███████ ███████ ███████ 
+     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⠘⣿⠃⣿⣿⣿⣿⡏⠀⠀⠀⠀ ██  ██  ██    ██    ██      ██    ██ ████   ██ ██      ██      ██   
+     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠈⠛⣰⠿⣆⠛⠁⠀⡀⠀⠀⠀⠀⠀ █████   ██    ██    ███████ ██    ██ ██ ██  ██ █████   █████   █████   
+     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣦⠀⠘⠛⠋⠀⣴⣿⠁⠀⠀⠀⠀⠀ ██  ██  ██    ██         ██ ██    ██ ██  ██ ██ ██      ██      ██ 
+     ⠀⠀⠀⠀⠀⠀⣀⣤⣶⣾⣿⣿⣿⣿⡇⠀⠀⠀⢸⣿⣏⠀⠀⠀⠀⠀⠀ ██   ██ ██    ██    ███████  ██████  ██   ████ ███████ ███████ ███████ 
+     ⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠀⠀⠀⠾⢿⣿⠀⠀⠀⠀⠀⠀
+     ⠀⣠⣿⣿⣿⣿⣿⣿⡿⠟⠋⣁⣠⣤⣤⡶⠶⠶⣤⣄⠈⠀⠀⠀⠀⠀⠀
+     ⢰⣿⣿⣮⣉⣉⣉⣤⣴⣶⣿⣿⣋⡥⠄⠀⠀⠀⠀⠉⢻⣄⠀⠀⠀⠀⠀
+     ⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣋⣁⣤⣀⣀⣤⣤⣤⣤⣄⣿⡄⠀⠀⠀⠀
+     ⠀⠙⠿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠋⠉⠁⠀⠀⠀⠀⠈⠛⠃⠀⠀⠀⠀
+     ⠀⠀⠀⠀⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+     Type 'help' to see available commands.`,
+    ],
   };
 
   const handleCommand = (e) => {
@@ -43,12 +78,14 @@ export default function Terminal({ onClose }) {
     if (trimmedInput === "clear") {
       setOutput([]);
     } else if (trimmedInput === "exit") {
-      onClose(); // Close terminal
+      onClose();
     } else if (commands[trimmedInput.replace("cd ", "")]) {
       newOutput = [...newOutput, ...commands[trimmedInput.replace("cd ", "")]];
       setOutput(newOutput);
     } else {
-      newOutput.push("❌ Command not found. Type 'help' for available commands.");
+      newOutput.push(
+        "❌ Command not found. Type 'help' for available commands."
+      );
       setOutput(newOutput);
     }
 
@@ -62,41 +99,33 @@ export default function Terminal({ onClose }) {
   }, [output]);
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex justify-center items-center p-6">
-      <div className="w-full max-w-4xl h-[80vh] bg-gray-900 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        {/* Terminal Header */}
-        <div className="bg-gray-800 p-3 flex justify-between text-white">
-          <span>🔹 Portfolio Terminal</span>
-          <button
-            onClick={onClose}
-            className="text-red-500 hover:text-red-700 font-bold"
-          >
-            X
-          </button>
-        </div>
-
-        {/* Terminal Body */}
+    <div className="fixed inset-0 bg-black flex justify-center items-center p-4">
+      <div className="w-full h-full max-w-[90vw] max-h-[90vh] bg-black border-[6px] border-green-900 rounded-lg shadow-2xl flex flex-col retro-terminal">
         <div
           ref={terminalRef}
-          className="flex-1 p-4 overflow-y-auto text-green-400 font-mono text-sm"
+          className="flex-1 p-4 overflow-y-auto text-green-400 font-mono text-sm scan-lines"
         >
           {output.map((line, index) => (
-            <p key={index}>{line}</p>
+            <pre key={index} className="whitespace-pre-wrap">
+              {line}
+            </pre>
           ))}
+          {/* Input inside the body */}
+          <form onSubmit={handleCommand} className="flex items-center">
+            <span className="text-green-400 font-mono">
+              kitsune@portfolio:~$
+            </span>
+            <input
+              type="text"
+              className="flex-1 bg-transparent outline-none text-green-400 font-mono ml-2"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              autoFocus
+            />
+          </form>
         </div>
-
-        {/* Terminal Input */}
-        <form onSubmit={handleCommand} className="p-3 bg-gray-800 flex">
-          <span className="text-green-400 font-mono">➜</span>
-          <input
-            type="text"
-            className="flex-1 bg-transparent outline-none text-green-400 font-mono ml-2"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            autoFocus
-          />
-        </form>
       </div>
     </div>
   );
 }
+

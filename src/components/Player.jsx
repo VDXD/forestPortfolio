@@ -11,7 +11,7 @@ const Player = ({ controlsEnabled, onPositionUpdate, onMovementChange }) => {
   const direction = useRef(new THREE.Vector3());
   const speed = 5;
   const gravity = -9.8;
-  const jumpStrength = 5;
+  const jumpStrength = 4;
   const [onGround, setOnGround] = useState(true);
   const [flashlightOn, setFlashlightOn] = useState(false);
   const [isMoving, setIsMoving] = useState(false); // Track if player is moving

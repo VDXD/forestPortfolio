@@ -150,32 +150,42 @@ function Experience() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleOpenRiddle = () => {
-    const randomRiddle = riddles[Math.floor(Math.random() * riddles.length)];
-    setRiddle(randomRiddle);
-    setLives(3); 
-    setAnsweredCorrectly(false);
+  // const handleOpenRiddle = () => {
+  //   const randomRiddle = riddles[Math.floor(Math.random() * riddles.length)];
+  //   setRiddle(randomRiddle);
+  //   setLives(3); 
+  //   setAnsweredCorrectly(false);
+  //   pointerLockRef.current.unlock();
+  // };
+
+  // const handleCloseRiddle = () => {
+  //   setRiddle(null);
+  //   pointerLockRef.current.lock();
+  // };
+
+  // const handleRiddleAnswer = (input) => {
+  //   if (!riddle) return;
+  //   if (input.toLowerCase() === riddle.answer.toLowerCase()) {
+  //     setAnsweredCorrectly(true);
+  //     setRiddle(null); 
+  //   } else {
+  //     setLives((prevLives) => {
+  //       if (prevLives === 1) {
+  //         setRiddle(null); 
+  //       }
+  //       return prevLives - 1;
+  //     });
+  //   }
+  // };
+
+    const handleOpenTerminal = () => {
+    setShowTerminal(true);
     pointerLockRef.current.unlock();
   };
 
-  const handleCloseRiddle = () => {
-    setRiddle(null);
+  const handleCloseTerminal = () => {
+    setShowTerminal(false);
     pointerLockRef.current.lock();
-  };
-
-  const handleRiddleAnswer = (input) => {
-    if (!riddle) return;
-    if (input.toLowerCase() === riddle.answer.toLowerCase()) {
-      setAnsweredCorrectly(true);
-      setRiddle(null); 
-    } else {
-      setLives((prevLives) => {
-        if (prevLives === 1) {
-          setRiddle(null); 
-        }
-        return prevLives - 1;
-      });
-    }
   };
 
   return (
@@ -231,7 +241,8 @@ function Experience() {
 
           <ComputerModel
             position={modelPosition}
-            onClick={handleOpenRiddle}
+            // onClick={handleOpenRiddle}
+            onClick={handleOpenTerminal}
             playerPosition={playerPosition}
           />
 
@@ -246,14 +257,14 @@ function Experience() {
           <PointerLockControls ref={pointerLockRef} />
         </Canvas>
 
-        {riddle && (
+        {/* {riddle && (
           <RiddleModal
             riddle={riddle}
             onAnswer={handleRiddleAnswer}
             lives={lives}
             onClose={handleCloseRiddle}
           />
-        )}
+        )} */}
 
         {showTerminal && <Terminal onClose={handleCloseTerminal} />}
 
