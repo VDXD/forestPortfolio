@@ -20,7 +20,7 @@ body {
 
 /* Retro Terminal Style */
 .retro-terminal {
-  background: #000;
+  background: #1a1a1a;
   color: #00ff00; /* Bright green text */
   box-shadow: 0 0 15px #00ff00, inset 0 0 10px #003300;
 }
@@ -49,8 +49,8 @@ body {
 
 /* Old-School Border Glow */
 .retro-terminal {
-  border: 6px solid #00ff00; /* Green border */
-  box-shadow: 0 0 20px #00ff00, inset 0 0 10px #003300;
+  border: 6px solid #1f2631; 
+  box-shadow: 0 0 20px #3b3b3b, inset 0 0 10px #181818;
 }
 
 /* Add this to your global CSS file */
@@ -71,3 +71,27 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #00cc00; /* Brighter green on hover */
 }
+
+.text-glow {
+  /* color: #123a12; */
+  text-shadow: 
+    0 0 2px #00ff00, 
+    0 0 7px #00ff00, 
+    0 0 15px #00ff00, 
+    0 0 30px #00ff00, 
+    0 0 60px #00ff00;
+}
+
+/* .text-glow {
+  animation: glow 1s infinite alternate;
+  color: #39ff14;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14;
+  }
+  to {
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 80px #39ff14;
+  }
+} */
